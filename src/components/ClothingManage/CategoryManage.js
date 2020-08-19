@@ -107,7 +107,7 @@ export default class CategoryManage extends Component {
 
     handlerRegisterCategory = async (e) => {
         e.preventDefault();
-        const response = await axios.post('http://localhec2-54-232-175-236.sa-east-1.compute.amazonaws.comost:4000/clothing_manage/category_manage',{
+        const response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/category_manage',{
             name : this.state.name, 
             description : this.state.description, 
             type : this.state.type_category
