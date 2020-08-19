@@ -35,6 +35,7 @@ export default class NewPassword extends Component {
                 password : this.state.password
             });
             alert(response.data.message);
+            window.location.assign(`/login`);
         } else {
             alert("Reescribe el nuevo password, No coinciden");
         }
