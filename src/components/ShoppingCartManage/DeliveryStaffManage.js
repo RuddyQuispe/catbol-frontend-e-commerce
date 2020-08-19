@@ -16,7 +16,7 @@ export default class DeliveryStaffManage extends Component {
     }
 
     async getListDelivery(){
-        const response = await axios.get(`http://localhost:4000/shopping_cart_manage/delivery_staff_manage`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/delivery_staff_manage`);
         console.log(response.data);
         this.setState({
             list_delivery : response.data
@@ -49,7 +49,7 @@ export default class DeliveryStaffManage extends Component {
 
     registerDelivery = async (e) => {
         e.preventDefault();
-        const response = await axios.post(`http://localhost:4000/shopping_cart_manage/delivery_staff_manage`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/delivery_staff_manage`,{
             name : this.state.name, 
             movil_description : this.state.movil
         });

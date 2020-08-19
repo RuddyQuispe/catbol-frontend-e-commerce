@@ -19,7 +19,7 @@ export default class CategoryManage extends Component {
     }
 
     async getListCategory(){
-        const response = await axios.get('http://localhost:4000/clothing_manage/category_manage');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/category_manage');
         this.setState({
             list_category : response.data
         })
@@ -44,7 +44,7 @@ export default class CategoryManage extends Component {
     }
 
     async handlerEnableDisableCategory(idCategory){
-        const response = await axios.post('http://localhost:4000/clothing_manage/category_manage/enable_disable',{
+        const response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/category_manage/enable_disable',{
             id_category : idCategory
         });
         alert(response.data.message);
@@ -107,7 +107,7 @@ export default class CategoryManage extends Component {
 
     handlerRegisterCategory = async (e) => {
         e.preventDefault();
-        const response = await axios.post('http://localhlocalhostost:4000/clothing_manage/category_manage',{
+        const response = await axios.post('http://localhec2-54-232-175-236.sa-east-1.compute.amazonaws.comost:4000/clothing_manage/category_manage',{
             name : this.state.name, 
             description : this.state.description, 
             type : this.state.type_category

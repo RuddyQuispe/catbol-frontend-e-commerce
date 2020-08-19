@@ -21,7 +21,7 @@ export default class CuponGet extends Component {
     }
 
     async getListCouponAvailable(){
-        const response = await axios.get(`http://localhost:4000/shopping_cart_manage/coupon_user/${this.getDataUser()}`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/coupon_user/${this.getDataUser()}`);
         this.setState({
             list_coupons_has : response.data.list_coupon_user,
             list_coupons_not_has : response.data.list_coupon_not_user
@@ -58,7 +58,7 @@ export default class CuponGet extends Component {
     }
 
     async getCoupon(codeCoupon){
-        const response = await axios.post(`http://localhost:4000/shopping_cart_manage/coupon_user_register`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/coupon_user_register`,{
             code_coupon : codeCoupon, 
             ci_user : this.getDataUser()
         });

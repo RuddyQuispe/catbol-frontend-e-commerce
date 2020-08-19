@@ -16,7 +16,7 @@ export default class CouponManage extends Component {
     }
 
     async getListCoupons(){
-        const response = await axios.get(`http://localhost:4000/shopping_cart_manage/coupon_manage`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/coupon_manage`);
         this.setState({
             list_coupons : response.data
         });
@@ -48,7 +48,7 @@ export default class CouponManage extends Component {
 
     registerNewCoupon = async (e) => {
         e.preventDefault();
-        const response = await axios.post(`http://localhost:4000/shopping_cart_manage/coupon_manage`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/coupon_manage`,{
             limit_date : this.state.limit_date, 
             discount : this.state.discount
         });

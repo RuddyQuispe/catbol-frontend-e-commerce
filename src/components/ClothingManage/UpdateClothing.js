@@ -20,7 +20,7 @@ export default class UpdateClothing extends Component {
     }
 
     async getDataClothing (){
-        const response = await axios.get(`http://localhost:4000/clothing_manage/clothing_manage/${this.props.match.params.clothing_code}/${this.props.match.params.id_size}`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/clothing_manage/${this.props.match.params.clothing_code}/${this.props.match.params.id_size}`);
         this.setState({
             new_description : response.data.data_clothing.description,
             new_characteristics : response.data.data_clothing.characterists,
@@ -86,7 +86,7 @@ export default class UpdateClothing extends Component {
             }
         };
         console.log("sending data");
-        let response = await axios.put(`http://localhost:4000/clothing_manage/clothing_manage/${this.state.clothing_code}/${this.state.id_size}`, fd, config);
+        let response = await axios.put(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/clothing_manage/${this.state.clothing_code}/${this.state.id_size}`, fd, config);
         alert(response.data.message);
     }
 

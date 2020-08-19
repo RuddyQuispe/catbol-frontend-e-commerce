@@ -14,14 +14,14 @@ export default class ClothingList extends Component {
     }
 
     async getLisClothing(){
-        const response = await axios.get('http://localhost:4000/clothing_manage/clothing_manage');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/clothing_manage');
         this.setState({
             list_clothing : response.data.clothing_list
         });
     }
 
     enableDisable = async (code_clothing) => {
-        const response = await axios.post(`http://localhost:4000/clothing_manage/clothing_manage/enable_disable`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/clothing_manage/enable_disable`,{
             code_clothing : code_clothing
         });
         alert(response.data.message);

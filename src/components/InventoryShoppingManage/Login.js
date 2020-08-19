@@ -12,7 +12,7 @@ export default class Login extends Component {
     signIn = async (e) => {
         e.preventDefault();
         if (this.state.email.length>0 && this.state.password>0) {
-            const response = await axios.post('http://localhost:4000/login', this.state);
+            const response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/login', this.state);
             console.log(response.data);
             if (response.data.type==="Admin") {
                 window.sessionStorage.setItem("USER_AUTH",JSON.stringify(response.data));

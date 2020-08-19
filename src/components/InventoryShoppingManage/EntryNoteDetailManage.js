@@ -21,7 +21,7 @@ export default class EntryNoteDetailManage extends Component {
     }
 
     async getListEntryDetailAndOptionsClothingSize(){
-        const response = await axios.get(`http://localhost:4000/inventory_shopping_manage/entry_note_manage/detail/${this.props.match.params.entry_no}`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/entry_note_manage/detail/${this.props.match.params.entry_no}`);
         this.setState({
             list_entry_detail: response.data.list_entry_detail,
             options_clothing: response.data.options_clothing,
@@ -86,7 +86,7 @@ export default class EntryNoteDetailManage extends Component {
 
     registerEntryDetail = async (e) => {
         e.preventDefault();
-        const response = await axios.post(`http://localhost:4000/inventory_shopping_manage/entry_note_manage/detail/${this.props.match.params.entry_no}`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/entry_note_manage/detail/${this.props.match.params.entry_no}`,{
             id_tail : this.state.id_size, 
             code_clothing : this.state.code_clothing, 
             quantity : this.state.quantity
@@ -96,7 +96,7 @@ export default class EntryNoteDetailManage extends Component {
     }
 
     async deleteDetailEntryNote(idDetail) {
-        const response = await axios.delete(`http://localhost:4000/inventory_shopping_manage/entry_note_manage/detail/delete/${this.props.match.params.entry_no}/${idDetail}`);
+        const response = await axios.delete(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/entry_note_manage/detail/delete/${this.props.match.params.entry_no}/${idDetail}`);
         alert(response.data.message);
         await this.getListEntryDetailAndOptionsClothingSize();
     }

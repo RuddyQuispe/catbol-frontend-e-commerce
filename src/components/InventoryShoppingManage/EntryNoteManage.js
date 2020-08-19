@@ -19,7 +19,7 @@ export default class EntryNoteManage extends Component {
     }
 
     async getListEntryNoteAndProviders(){
-        const response = await axios.get('http://localhost:4000/inventory_shopping_manage/entry_note_manage');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/entry_note_manage');
         this.setState({
             list_note : response.data.entryNoteList,
             options_provider : response.data.getOptionsProvider
@@ -73,7 +73,7 @@ export default class EntryNoteManage extends Component {
 
     registerEntryNote = async (e) => {
         e.preventDefault();
-        const response = await axios.post('http://localhost:4000/inventory_shopping_manage/entry_note_manage',{
+        const response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/entry_note_manage',{
             description : this.state.description,
             date_note : this.state.date, 
             id_user : JSON.parse(sessionStorage.getItem("USER_AUTH")).id,

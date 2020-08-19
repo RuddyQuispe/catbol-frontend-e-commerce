@@ -16,7 +16,7 @@ export default class ReportPaymentType extends Component {
     }
 
     async makeReport(){
-        const response = await axios.get('http://localhost:4000/shopping_cart_manage/report_payment');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/report_payment');
         this.setState({
             list_report : response.data
         });

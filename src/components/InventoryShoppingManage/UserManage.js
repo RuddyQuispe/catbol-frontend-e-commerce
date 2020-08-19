@@ -19,7 +19,7 @@ export default class UserManage extends Component {
     }
 
     enableDisableUser = async (id) => {
-        const response = await axios.put(`http://localhost:4000/inventory_shopping_manage/user_manage/enable_disable/${id}`);
+        const response = await axios.put(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/user_manage/enable_disable/${id}`);
         await this.getUserList();
         alert(response.data.message);
     }
@@ -63,7 +63,7 @@ export default class UserManage extends Component {
     }
 
     async getUserList(){
-        const res = await axios.get('http://localhost:4000/inventory_shopping_manage/user_manage');
+        const res = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/user_manage');
         this.setState({users : res.data.userList});
     }
 
@@ -96,7 +96,7 @@ export default class UserManage extends Component {
         e.preventDefault();
         console.log(this.state);
         if (this.state.email.length>0 && this.state.username.length>0 && this.state.password.length>0 && ['Admin', 'Workshop'].includes(this.state.rol_description)) {
-            const response = await axios.post('http://localhost:4000/inventory_shopping_manage/user_manage', {
+            const response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/user_manage', {
                 username : this.state.username, 
                 email: this.state.email, 
                 role_description: this.state.rol_description,

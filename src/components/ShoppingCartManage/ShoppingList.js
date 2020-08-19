@@ -19,14 +19,14 @@ export default class ShoppingList extends Component {
     }
 
     async getList(){
-        const response = await axios.get(`http://localhost:4000/shopping_cart_manage/shopping_list/${this.state.cod_shopping_cart}`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/shopping_list/${this.state.cod_shopping_cart}`);
         this.setState({
             shopping_list : response.data
         })
     }
 
     async removeClothingShopping(codeClothing, idSize){
-        const response = await axios.post('http://localhost:4000/shopping_cart_manage/shopping_list/remove',{
+        const response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/shopping_list/remove',{
             code_clothing : codeClothing,
             id_size : idSize,
             code_shopping : this.state.cod_shopping_cart

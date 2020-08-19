@@ -17,7 +17,7 @@ export default class UserUpdate extends Component {
     }
 
     async getUserData(id){
-        const response = await Axios.get(`http://localhost:4000/inventory_shopping_manage/user_manage/update/${id}`);
+        const response = await Axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/user_manage/update/${id}`);
         console.log(response.data.username);
         await this.setState({
             username : response.data.username,
@@ -28,7 +28,7 @@ export default class UserUpdate extends Component {
     }
 
     updateUser = async () => {
-        const response = await Axios.put(`http://localhost:4000/inventory_shopping_manage/user_manage/update/${this.state.id}`,{
+        const response = await Axios.put(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/user_manage/update/${this.state.id}`,{
             username : this.state.username,
             email : this.state.email,
             rol_description : this.state.rol_description

@@ -22,7 +22,7 @@ export default class ClothingManage extends Component {
     }
 
     async getListOptionsSize(){
-        const response = await axios.get('http://localhost:4000/clothing_manage/size_manage');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/size_manage');
         this.setState({
             options_size : response.data.size_list
         });
@@ -98,7 +98,7 @@ export default class ClothingManage extends Component {
                 }
             };
             console.log("sending data");
-            let response = await axios.post('http://localhost:4000/clothing_manage/clothing_manage',fd, config);
+            let response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/clothing_manage',fd, config);
             alert(response.data.message);
         } else {
             alert("Seleccione al menos una talla de Ropa");

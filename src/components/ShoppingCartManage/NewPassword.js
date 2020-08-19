@@ -31,7 +31,7 @@ export default class NewPassword extends Component {
     registerNewPassword = async (e) => {
         e.preventDefault();
         if (this.state.password===this.state.retype_password) {
-            const response = await axios.post(`http://localhost:4000/inventory_shopping_manage/user_manage/restore_account/new_password/${this.state.email}`,{
+            const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/user_manage/restore_account/new_password/${this.state.email}`,{
                 password : this.state.password
             });
             alert(response.data.message);

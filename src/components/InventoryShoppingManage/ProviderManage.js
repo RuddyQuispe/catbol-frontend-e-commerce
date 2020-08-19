@@ -19,7 +19,7 @@ export default class ProviderManage extends Component {
     }
 
     async getLisProvider() {
-        const response = await axios.get('http://localhost:4000/inventory_shopping_manage/provider_manage');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/provider_manage');
         this.setState({
             list_provider : response.data
         });
@@ -71,7 +71,7 @@ export default class ProviderManage extends Component {
 
     registerProvider = async (e) => {
         e.preventDefault();
-        let response = await axios.post('http://localhost:4000/inventory_shopping_manage/provider_manage', {
+        let response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/provider_manage', {
             ci_nit : this.state.ci_nit,
             name : this.state.name,
             phone : this.state.phone, 

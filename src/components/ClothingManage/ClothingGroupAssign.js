@@ -20,7 +20,7 @@ export default class ClothingGroupAssign extends Component {
     }
 
     async getListAndData() {
-        const response = await axios.get(`http://localhost:4000/clothing_manage/clothing_group_manage/${this.props.match.params.code_clothing}`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/clothing_group_manage/${this.props.match.params.code_clothing}`);
         this.setState({
             image_name: response.data.clothing_data.image_name,
             description: response.data.clothing_data.description,
@@ -55,7 +55,7 @@ export default class ClothingGroupAssign extends Component {
     async registerClothing() {
         const array = this.state.list_code_clothing_to_add;
         array.sort();
-        const response = await axios.post(`http://localhost:4000/clothing_manage/clothing_group_manage/${this.state.code_clothing}`, {
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/clothing_group_manage/${this.state.code_clothing}`, {
             list_code_clothing: array
         });
         alert(response.data.message);

@@ -11,7 +11,7 @@ export default class BitacoraManage extends Component {
     }
 
     async componentDidMount(){
-        const response = await axios.get('http://localhost:4000/inventory_shopping_manage/bitacora_manage');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/bitacora_manage');
         this.setState({
             list_bitacora : response.data
         })

@@ -14,7 +14,7 @@ export default class ClientManage extends Component {
     }
 
     async getListClientUser(){
-        const response = await axios.get(`http://localhost:4000/shopping_cart_manage/client_user_manage`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/client_user_manage`);
         console.log(response.data);
         this.setState({
             list_client : response.data
@@ -60,7 +60,7 @@ export default class ClientManage extends Component {
     }
 
     async enableDisableClient(ci){
-        const response = await axios.put(`http://localhost:4000/shopping_cart_manage/client_user_manage/enable_disable/${ci}`);
+        const response = await axios.put(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/client_user_manage/enable_disable/${ci}`);
         alert(response.data.message);
         await this.getListClientUser();
     }

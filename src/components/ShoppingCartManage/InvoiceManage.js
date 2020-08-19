@@ -14,7 +14,7 @@ export default class InvoiceManage extends Component {
     }
 
     async getListInvoiceManage(){
-        const response = await axios.get(`http://localhost:4000/shopping_cart_manage/invoice_manage`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/invoice_manage`);
         console.log(response.data);
         this.setState({
             list_invoice : response.data
@@ -48,7 +48,7 @@ export default class InvoiceManage extends Component {
                         <button className="btn btn-outline-secondary btn-block btn-sm" onClick={() => this.invoicePDFGenerate(invoice.invoice_no)}>
                             <i className="fa fa-file-pdf"></i> Generar Factura
                         </button>
-                        <a className="btn btn-sm btn-outline-primary btn-block" href={`http://localhost:4000/pdf/${invoice.invoice_no}`}>Obtener Factura</a>
+                        <a className="btn btn-sm btn-outline-primary btn-block" href={`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/pdf/${invoice.invoice_no}`}>Obtener Factura</a>
                     </td>
                 </tr>
             )
@@ -56,7 +56,7 @@ export default class InvoiceManage extends Component {
     }
 
     async invoicePDFGenerate(invoiceNo){
-        await axios.post(`http://localhost:4000/shopping_cart_manage/invoice_manage_generate/print`, {
+        await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/invoice_manage_generate/print`, {
             invoice_no : invoiceNo
         });
         alert("Generado correctamente");

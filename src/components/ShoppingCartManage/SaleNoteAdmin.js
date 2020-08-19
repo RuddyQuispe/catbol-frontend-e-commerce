@@ -16,7 +16,7 @@ export default class SaleNoteAdmin extends Component {
     }
 
     async getListSaleNoteAndDelivery(){
-        const response = await axios.get(`http://localhost:4000/shopping_cart_manage/sale_note_admin`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/sale_note_admin`);
         this.setState({
             list_sale_note : response.data.list_sale_note_admin,
             delivery_options : response.data.list_delivery
@@ -30,7 +30,7 @@ export default class SaleNoteAdmin extends Component {
 
     async assignDeliveryOwner(codeSale, codeDelivery){
         const idUser = this.getDataUser();
-        const response = await axios.post(`http://localhost:4000/shopping_cart_manage/sale_note_assign_delivery`, {
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/sale_note_assign_delivery`, {
             code_sale : codeSale,
             id_delivery : codeDelivery,
             id_user_owner : idUser
@@ -70,7 +70,7 @@ export default class SaleNoteAdmin extends Component {
     }
 
     async conclusionSaleNote(codeSale){
-        const response = await axios.put(`http://localhost:4000/shopping_cart_manage/sale_note_conclusion/${codeSale}`);
+        const response = await axios.put(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/sale_note_conclusion/${codeSale}`);
         alert(response.data.message);
         await this.getListSaleNoteAndDelivery();
     }
@@ -86,7 +86,7 @@ export default class SaleNoteAdmin extends Component {
     }
 
     async generateInvoice(codeSale){
-        const response = await axios.post(`http://localhost:4000/shopping_cart_manage/invoice_manage_generate`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/invoice_manage_generate`,{
             code_sale : codeSale
         });
         alert(response.data.message);

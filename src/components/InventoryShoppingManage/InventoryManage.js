@@ -14,7 +14,7 @@ export default class InventoryManage extends Component {
     chartRef = React.createRef();
 
     async componentDidMount(){
-        const response = await axios.get('http://localhost:4000/inventory_shopping_manage/inventory_manage');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/inventory_manage');
         this.setState({
             list_inventory : response.data
         });

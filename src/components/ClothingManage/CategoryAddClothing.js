@@ -20,7 +20,7 @@ export default class CategoryAddClothing extends Component {
     }
 
     async getListData(){
-        const response = await axios.get(`http://localhost:4000/clothing_manage/category_manage/add_clothing_category/${this.props.match.params.code_category}`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/category_manage/add_clothing_category/${this.props.match.params.code_category}`);
         this.setState({
             description : response.data.category_data.description,
             name : response.data.category_data.name,
@@ -83,7 +83,7 @@ export default class CategoryAddClothing extends Component {
     }
 
     async handlerRegisterClothingCategory(codeClothing){
-        const response = await axios.post(`http://localhost:4000/clothing_manage/category_manage/add_clothing_category/${this.state.code_category}`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/category_manage/add_clothing_category/${this.state.code_category}`,{
             code_clothing : codeClothing
         });
         alert(response.data.message);
@@ -91,7 +91,7 @@ export default class CategoryAddClothing extends Component {
     }
 
     async handlerRemoveClothingCategory(codeClothing){
-        const response = await axios.post(`http://localhost:4000/clothing_manage/category_manage/remove_clothing_category/${this.state.code_category}`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/category_manage/remove_clothing_category/${this.state.code_category}`,{
             code_clothing : codeClothing
         });
         alert(response.data.message);

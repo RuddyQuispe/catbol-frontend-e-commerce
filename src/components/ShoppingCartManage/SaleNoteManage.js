@@ -25,7 +25,7 @@ export default class SaleNoteManage extends Component {
     }
 
     async getListUserData(){
-        const response = await axios.get(`http://localhost:4000/shopping_cart_manage/sale_note_manage/${this.state.code_shopping}`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/sale_note_manage/${this.state.code_shopping}`);
         this.setState({
             user_data : response.data.clientData,
             address : response.data.clientData.address,
@@ -123,7 +123,7 @@ export default class SaleNoteManage extends Component {
 
     saleNoteConclusion = async (e) => {
         e.preventDefault();
-        const response = await axios.post('http://localhost:4000/shopping_cart_manage/sale_note_manage_conclusion',{
+        const response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/sale_note_manage_conclusion',{
             home_no : this.state.home_no, 
             province : this.state.province, 
             city : this.state.city, 

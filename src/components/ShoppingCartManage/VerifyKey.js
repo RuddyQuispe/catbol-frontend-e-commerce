@@ -15,7 +15,7 @@ export default class VerifyKey extends Component {
 
     verifyKey = async (e) => {
         e.preventDefault();
-        const response = await axios.post(`http://localhost:4000/inventory_shopping_manage/user_manage/restore_account/verify_key`,{
+        const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/user_manage/restore_account/verify_key`,{
             key : this.state.key
         });
         console.log(response.data);

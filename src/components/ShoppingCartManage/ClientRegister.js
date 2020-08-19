@@ -71,7 +71,7 @@ export default class ClientRegister extends Component {
 
     registerAccountClientUser = async (e) => {
         e.preventDefault();
-        const response = await Axios.post(`http://localhost:4000/shopping_cart_manage/client_user_manage`,{
+        const response = await Axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/client_user_manage`,{
             ci : this.state.ci, 
             first_name : this.state.first_name, 
             last_name : this.state.last_name, 

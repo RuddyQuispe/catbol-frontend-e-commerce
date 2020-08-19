@@ -29,7 +29,7 @@ export default class Navigation extends Component {
     }
 
     async getCategory(){
-        const response = await axios.get(`http://localhost:4000/clothing_manage/category_manage`);
+        const response = await axios.get(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/category_manage`);
         this.setState({
             list_category : response.data
         });
@@ -66,7 +66,7 @@ export default class Navigation extends Component {
 
     async ShoppingCartManage(){
         if (this.getClothingCount()>0) {
-            const response = await axios.post(`http://localhost:4000/shopping_cart_manage/shopping_generate`,{
+            const response = await axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/shopping_cart_manage/shopping_generate`,{
                 ci_client : this.getDataUser(), 
                 list_clothing : this.getClothingListStorage()
             });

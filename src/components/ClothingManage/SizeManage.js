@@ -15,7 +15,7 @@ export default class SizeManage extends Component {
     }
 
     async getListSize(){
-        const response = await axios.get('http://localhost:4000/clothing_manage/size_manage');
+        const response = await axios.get('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/size_manage');
         this.setState({
             list_size : response.data.size_list
         })
@@ -40,7 +40,7 @@ export default class SizeManage extends Component {
 
     registerSize = async (e) => {
         e.preventDefault();
-        let response = await axios.post('http://localhost:4000/clothing_manage/size_manage', {
+        let response = await axios.post('http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/clothing_manage/size_manage', {
             size : this.state.description
         });
         alert(response.data.message);

@@ -15,7 +15,7 @@ export default class RestoreAccount extends Component {
 
     recoveryAccount = async (e) => {
         e.preventDefault();
-        const response = await Axios.post(`http://localhost:4000/inventory_shopping_manage/user_manage/restore_account`, {
+        const response = await Axios.post(`http://ec2-54-232-175-236.sa-east-1.compute.amazonaws.com:4000/inventory_shopping_manage/user_manage/restore_account`, {
             email : this.state.email
         });
         alert(response.data.message);
